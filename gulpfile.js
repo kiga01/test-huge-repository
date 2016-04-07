@@ -1,0 +1,88 @@
+var gulp = require('gulp'),
+    nodemon = require('gulp-nodemon'),
+    gutil = require('gulp-util'),
+    compass = require('gulp-compass'),
+    concat = require('gulp-concat'),
+    scsslint = require('gulp-scss-lint');
+
+var outputDir,
+    sassStyle,
+    sassSources,
+    sassWatch,
+    fontSources,
+    htmlSources,
+gulp 
+outputDir = 'public/';
+sassStyle = 'expanded';
+
+sassSources = [
+    'app/app.scss'
+];
+sassWatch = [
+    'app/app.scss',
+    'app/styles/*.scss',
+];
+fontSources = [
+    'node_modules/font-awesome/fonts/*',
+    'app/fonts/*'
+];
+htmlSources = [
+    'app/index.html'
+];
+
+gulp.task('scss', function() {
+    gulp.src(sassSources)
+        .pipe(compass({
+            sass: 'app',
+            style: sassStyle
+        })
+            .on('error', gutil.log))
+        .pipe(gulp.dest(outputDir + 'styles'))
+});
+
+gulp.task('html', function() {
+    gulp.src(htmlSources)
+        .pipe(gulp.dest(outputDir));
+});
+
+gulp.task('fonts', function() {
+    gulp.src(fontSources)
+        .pipe(gulp.dest(outputDir + 'fonts'));
+});
+
+gulp.task('images', function() {
+    gulp.src('app/images/*.*')
+        .pipe(gulp.dest(outputDir + 'images'));
+});
+
+gulp.task('scsslint', function() {
+    gulp.src(sassWatch)
+        .pipe(scsslint({
+            'config': '.scss-lint.yml',
+            'reporterOutput': 'scssReport.json'
+        }))
+        .on('error', gutil.log)
+});
+
+gulp.task('watch', function() {
+    gulp.watch(sassWatch, ['scsslint']);
+    gulp.watch(sassWatch, ['scss']);
+    gulp.watch(htmlSources, ['html']);
+});
+
+gulp.task('server', function () {
+    nodemon({
+        script: './bin/www',
+        ext: 'js html',
+        env: { 'NODE_ENV': 'development' }
+    })
+});
+
+gulp.task('start', [
+    'scsslint',
+    'scss',
+    'html',
+    'fonts',
+    'server',
+    'watch']
+);

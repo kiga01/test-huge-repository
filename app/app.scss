@@ -1,0 +1,21 @@
+@import '../node_modules/font-awesome/scss/font-awesome.scss';
+@import 'styles/font';
+
+$main-color: #ec008c;
+$secondary-color: #ffffff;
+
+body {
+  background: $main-color;
+  color: $secondary-color;
+}
+
+h1 {
+  font: 20vmin/1 HUGEAvantGardeBold;
+  left: 50%;
+  letter-spacing: -.06em;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
