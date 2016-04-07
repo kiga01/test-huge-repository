@@ -40,7 +40,8 @@ At a high level the navigation will have two main states
 
 ## Get Started
 
-###Requirements
+### Requirements
+* ruby and compass gem installed
 * <a href="http://www.adobe.com/products/illustrator.html">Adobe Illustrator</a>
 * Node.js and npm (You get both when you <a href="https://docs.npmjs.com/getting-started/installing-node">install Node.js</a>.)
 
@@ -48,6 +49,7 @@ At a high level the navigation will have two main states
 ```
 git clone git@github.com:hugeinc/NavExercise.git
 cd NavExercise
+gem install compass
 npm install
 npm start
 ```
