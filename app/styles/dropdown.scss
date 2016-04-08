@@ -1,0 +1,32 @@
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-menu {
+  background-color: $secondary-color;
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 72px;
+  width: 220px;
+  z-index: 500;
+
+  a {
+    color: $solid-color !important;
+    display: block;
+    font-family: $galaxy-font-family;
+    font-size: 13px;
+    padding: 15px 24px !important;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $third-color;
+      color: $main-color !important;
+    }
+  }
+}
+
+.show {
+  display: block;
+}

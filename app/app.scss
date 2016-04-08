@@ -3,7 +3,7 @@
 
 $main-color: #ec008c;
 $secondary-color: #eeeeee;
-$third-color: rgba(0, 0, 0, .5);
+$third-color: rgba(0, 0, 0, .1);
 $solid-color: #000000;
 
 $avant-font-family: HUGEAvantGardeBold;
@@ -122,3 +122,5 @@ footer {
     width: 100%;
   }
 }
+
+@import 'styles/dropdown';
