@@ -5,10 +5,9 @@ $main-color: #ec008c;
 $secondary-color: #eeeeee;
 $third-color: Translucent Black rgba(0, 0, 0, .5);
 
-$primary-navigation: HUGEAvantGardeBold;
+$avant-font-family: HUGEAvantGardeBold;
 $secondary-navigation: 16/48 Galaxie;
-$headline-desktop: 120/132 HUGEAvantGardeBold;
-$body-copy-desktop: Galaxie;
+$galaxy-font-family: Galaxie;
 $headline-mobile: 44/48 HUGEAvantGardeBold;
 $body-copy-mobile: 14/24 Galaxie;
 $copyright-mobile: 12/16 Helvetica Neue Regular;
@@ -68,7 +67,7 @@ header {
       align-items: stretch;
       color: $secondary-color;
       display: flex;
-      font-family: $primary-navigation;
+      font-family: $avant-font-family;
       font-size: 21px;
       margin: 0;
       text-transform: capitalize;
@@ -87,25 +86,33 @@ header {
 
 .content-image {
   height: $content-height-desktop;
+  position: relative;
   width: 100%;
 
   img {
     background-size: cover;
     height: $content-height-desktop;
+    position: absolute;
     width: 100%;
   }
 
   .flying-text {
     color: $secondary-color;
-    font-size: 70px;
+    font-family: $avant-font-family;
+    font-size: 100px;
     height: $content-height-desktop;
+    padding-top: 200px;
+    position: absolute;
+    text-align: center;
+    text-transform: capitalize;
     width: 100%;
+    z-index: 100;
   }
 }
 
 footer {
   color: $third-color;
-  font-family: $body-copy-desktop;
+  font-family: $galaxy-font-family;
   font-size: 18px;
   height: $footer-height-desktop;
 
