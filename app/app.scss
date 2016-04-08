@@ -3,14 +3,12 @@
 
 $main-color: #ec008c;
 $secondary-color: #eeeeee;
-$third-color: Translucent Black rgba(0, 0, 0, .5);
+$third-color: rgba(0, 0, 0, .5);
+$solid-color: #000000;
 
 $avant-font-family: HUGEAvantGardeBold;
-$secondary-navigation: 16/48 Galaxie;
 $galaxy-font-family: Galaxie;
-$headline-mobile: 44/48 HUGEAvantGardeBold;
-$body-copy-mobile: 14/24 Galaxie;
-$copyright-mobile: 12/16 Helvetica Neue Regular;
+$copyright-mobile: Helvetica Neue Regular;
 
 $menu-height-desktop: 72px;
 $content-height-desktop: 600px;
@@ -111,7 +109,7 @@ header {
 }
 
 footer {
-  color: $third-color;
+  color: $solid-color;
   font-family: $galaxy-font-family;
   font-size: 18px;
   height: $footer-height-desktop;

@@ -11,7 +11,8 @@ var outputDir,
     sassWatch,
     fontSources,
     htmlSources,
-gulp 
+    jsSources,
+
 outputDir = 'public/';
 sassStyle = 'expanded';
 
@@ -29,6 +30,9 @@ fontSources = [
 htmlSources = [
     'app/index.html'
 ];
+jsSources = [
+    'app/js/*.js'
+];
 
 gulp.task('scss', function() {
     gulp.src(sassSources)
@@ -38,6 +42,13 @@ gulp.task('scss', function() {
         })
             .on('error', gutil.log))
         .pipe(gulp.dest(outputDir + 'styles'))
+});
+
+gulp.task('js', function() {
+    gulp.src(jsSources)
+        .pipe(concat('script.js'))
+            .on('error', gutil.log)
+        .pipe(gulp.dest(outputDir + 'js'))
 });
 
 gulp.task('html', function() {
@@ -67,6 +78,7 @@ gulp.task('scsslint', function() {
 gulp.task('watch', function() {
     gulp.watch(sassWatch, ['scsslint']);
     gulp.watch(sassWatch, ['scss']);
+    gulp.watch(jsSources, ['js']);
     gulp.watch(htmlSources, ['html']);
 });
 
@@ -81,6 +93,7 @@ gulp.task('server', function () {
 gulp.task('start', [
     'scsslint',
     'scss',
+    'js',
     'html',
     'fonts',
     'server',
