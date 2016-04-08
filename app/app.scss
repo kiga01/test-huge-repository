@@ -2,20 +2,85 @@
 @import 'styles/font';
 
 $main-color: #ec008c;
-$secondary-color: #ffffff;
+$secondary-color: #eeeeee;
+$third-color: Translucent Black rgba(0, 0, 0, .5);
+
+$primary-navigation: HUGEAvantGardeBold;
+$secondary-navigation: 16/48 Galaxie;
+$headline-desktop: 120/132 HUGEAvantGardeBold;
+$body-copy-desktop: 24/36 Galaxie;
+$headline-mobile: 44/48 HUGEAvantGardeBold;
+$body-copy-mobile: 14/24 Galaxie;
+$copyright-mobile: 12/16 Helvetica Neue Regular;
+
+$menu-height: 72px;
 
 body {
-  background: $main-color;
-  color: $secondary-color;
+  background-color: $secondary-color;
+  color: $third-color;
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
-  font: 20vmin/1 HUGEAvantGardeBold;
-  left: 50%;
-  letter-spacing: -.06em;
+header {
+  background-color: $main-color;
+  height: $menu-height;
   margin: 0;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  padding: 0;
+  width: 100%;
+
+  .logo {
+    color: $secondary-color;
+    display: inline-block;
+    height: 24px;
+    padding: 24px;
+    width: 60px;
+
+    img {
+      background-size: cover;
+      width: 100%;
+    }
+  }
+
+  .navigation-menu {
+    display: inline-block;
+    height: $menu-height;
+    position: absolute;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    height: $menu-height;
+    margin: 0;
+    padding: 0;
+
+    li {
+      align-items: stretch;
+      color: $secondary-color;
+      display: flex;
+      font-family: $primary-navigation;
+      font-size: 21px;
+      margin: 0;
+      padding: 26px;
+      text-transform: capitalize;
+
+      &:focus,
+      &:hover {
+        background-color: $secondary-color;
+        color: $main-color;
+        cursor: hand;
+      }
+    }
+  }
+}
+
+.content-image {
+  height: 600px;
+  width: 100%;
+
+  img {
+    background-size: cover;
+    width: 100%;
+  }
 }
