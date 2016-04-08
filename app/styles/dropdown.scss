@@ -13,16 +13,16 @@
   z-index: 500;
 
   a {
-    color: $solid-color !important;
+    color: $solid-color;
     display: block;
     font-family: $galaxy-font-family;
     font-size: 13px;
-    padding: 15px 24px !important;
+    padding: 15px 24px;
     text-decoration: none;
 
     &:hover {
       background-color: $third-color;
-      color: $main-color !important;
+      color: $main-color;
     }
   }
 }
