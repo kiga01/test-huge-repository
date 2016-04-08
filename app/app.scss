@@ -8,12 +8,15 @@ $third-color: Translucent Black rgba(0, 0, 0, .5);
 $primary-navigation: HUGEAvantGardeBold;
 $secondary-navigation: 16/48 Galaxie;
 $headline-desktop: 120/132 HUGEAvantGardeBold;
-$body-copy-desktop: 24/36 Galaxie;
+$body-copy-desktop: Galaxie;
 $headline-mobile: 44/48 HUGEAvantGardeBold;
 $body-copy-mobile: 14/24 Galaxie;
 $copyright-mobile: 12/16 Helvetica Neue Regular;
 
-$menu-height: 72px;
+$menu-height-desktop: 72px;
+$content-height-desktop: 600px;
+$footer-height-desktop: 60px;
+
 
 body {
   background-color: $secondary-color;
@@ -24,7 +27,7 @@ body {
 
 header {
   background-color: $main-color;
-  height: $menu-height;
+  height: $menu-height-desktop;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -44,16 +47,22 @@ header {
 
   .navigation-menu {
     display: inline-block;
-    height: $menu-height;
+    height: $menu-height-desktop;
     position: absolute;
   }
 
   .nav {
     display: flex;
     flex-direction: row;
-    height: $menu-height;
+    height: $menu-height-desktop;
     margin: 0;
     padding: 0;
+
+    a {
+      color: $secondary-color;
+      padding: 26px;
+      text-decoration: none;
+    }
 
     li {
       align-items: stretch;
@@ -62,25 +71,49 @@ header {
       font-family: $primary-navigation;
       font-size: 21px;
       margin: 0;
-      padding: 26px;
       text-transform: capitalize;
 
       &:focus,
       &:hover {
         background-color: $secondary-color;
-        color: $main-color;
-        cursor: hand;
+
+        a {
+          color: $main-color;
+        }
       }
     }
   }
 }
 
 .content-image {
-  height: 600px;
+  height: $content-height-desktop;
   width: 100%;
 
   img {
     background-size: cover;
+    height: $content-height-desktop;
+    width: 100%;
+  }
+
+  .flying-text {
+    color: $secondary-color;
+    font-size: 70px;
+    height: $content-height-desktop;
+    width: 100%;
+  }
+}
+
+footer {
+  color: $third-color;
+  font-family: $body-copy-desktop;
+  font-size: 18px;
+  height: $footer-height-desktop;
+
+  p {
+    margin: 0;
+    padding: 0;
+    padding-top: 34px;
+    text-align: center;
     width: 100%;
   }
 }
