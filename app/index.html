@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/styles/app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body onload="windowHeight()">
     <header>
         <div class="logo">
             <img src="images/HUGE-white.png" alt="huge">
@@ -34,9 +34,21 @@
                 <li class="nav-list"><a href="#" class="nav-url">contact</a></li>
             </ul>
         </div>
-        <div class="navigation-button">
-            <span class="fa fa-bars fa-2x"></span>
-
+        <div class="navigation-button dropdown">
+            <span class="fa fa-bars fa-2x dropbtn-mobile" onclick="myButtonFunction()"></span>
+            <div class="navigation-menu-mobile" id="myDropdownButton">
+                <ul class="nav">
+                    <li class="nav-list"><a href="#" class="nav-url">work</a></li>
+                    <li class="nav-list"><a href="#" class="nav-url">about</a></li>
+                    <li class="nav-list dropdown">
+                        <a href="#" class="nav-url">carrers</a>
+                    </li>
+                    <li class="nav-list"><a href="#" class="nav-url">ideas</a></li>
+                    <li class="nav-list"><a href="#" class="nav-url">news</a></li>
+                    <li class="nav-list"><a href="#" class="nav-url">events</a></li>
+                    <li class="nav-list"><a href="#" class="nav-url">contact</a></li>
+                </ul>
+            </div>
         </div>
 
     </header>
