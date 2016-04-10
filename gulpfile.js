@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     compass = require('gulp-compass'),
     concat = require('gulp-concat'),
-    scsslint = require('gulp-scss-lint');
+    scsslint = require('gulp-scss-lint'),
+    karma = require('karma').Server;
 
 var outputDir,
     sassStyle,
@@ -33,6 +34,8 @@ htmlSources = [
 jsSources = [
     'app/js/*.js'
 ];
+
+
 
 gulp.task('scss', function() {
     gulp.src(sassSources)
@@ -73,6 +76,13 @@ gulp.task('scsslint', function() {
             'reporterOutput': 'scssReport.json'
         }))
         .on('error', gutil.log)
+});
+
+gulp.task('karmatest', function (done) {
+    return new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done).start();
 });
 
 gulp.task('watch', function() {
