@@ -7,8 +7,10 @@ function myButtonFunction() {
 }
 
 function windowHeight() {
-    var windowHeight = document.body.clientHeight;
-    document.getElementsByClassName("navigation-menu-mobile").style.height = "500px";
+    var windowHeight = document.body.clientHeight + 'px';
+    var menu = document.getElementById("myDropdownButton");
+    menu.height = windowHeight;
+    //menu.style.height = windowHeight;
 }
 
 // Close the dropdown menu if the user clicks outside of it

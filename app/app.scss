@@ -68,14 +68,14 @@ header {
       text-transform: capitalize;
 
       .nav-url {
-        color: $secondary-color;
+        color: $solid-color-clear;
         padding: 26px;
         text-decoration: none;
       }
 
       &:focus,
       &:hover {
-        background-color: $secondary-color;
+        background-color: $solid-color-clear;
 
         .nav-url {
           color: $main-color;
@@ -83,11 +83,6 @@ header {
       }
     }
   }
-}
-
-.navigation-button,
-.text-mobile {
-  display: none;
 }
 
 .content-image {

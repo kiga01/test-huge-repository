@@ -4,7 +4,7 @@
 }
 
 .dropdown-menu {
-  background-color: $secondary-color;
+  background-color: $solid-color-clear;
   display: none;
   left: 0;
   position: absolute;
@@ -39,8 +39,9 @@
   .navigation-menu-mobile {
     background-color: $solid-color-clear;
     display: none;
-    height: 600px;
+    height: 500px;
     left: 0;
+    overflow-y: auto;
     padding-top: 12px;
     position: absolute;
     top: 72px;
@@ -67,7 +68,7 @@
 
       .nav-url {
         color: $solid-color;
-        padding: 13px 24px;
+        padding: 13px 0 13px 24px;
         text-decoration: none;
         width: 100%;
       }
@@ -81,5 +82,16 @@
         }
       }
     }
+  }
+}
+
+.nav-url {
+  .fa {
+    color: $main-color;
+    margin: 0;
+    padding: 0;
+    padding-left: 70px;
+    padding-right: 12px;
+    position: inherit;
   }
 }

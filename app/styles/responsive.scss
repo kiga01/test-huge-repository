@@ -4,6 +4,13 @@
   }
 }
 
+@media (min-width: 768px) {
+  .navigation-button,
+  .text-mobile {
+    display: none !important;
+  }
+}
+
 @media (max-width: 767px) {
   .navigation-menu,
   .logo {
@@ -11,10 +18,20 @@
   }
 
   .navigation-button {
-    color: $secondary-color;
+    color: $solid-color-clear;
     display: block;
     padding: 20px 24px;
     width: 30px;
+
+    .copyright {
+      bottom: 0;
+      color: $solid-color;
+      font-family: $copyright-mobile;
+      font-size: 10px;
+      padding: 10px 12px 8px 24px;
+      position: absolute;
+      text-align: center;
+    }
 
     span {
       cursor: pointer;
@@ -49,7 +66,7 @@
     .flying-text-mobile {
       color: $solid-color;
       font-family: $avant-font-family;
-      font-size: 60px;
+      font-size: 50px;
       padding-bottom: 50px;
       text-align: center;
       text-transform: capitalize;
@@ -59,7 +76,7 @@
     p {
       color: $solid-color;
       font-family: $galaxy-font-family;
-      font-size: 18px;
+      font-size: 16px;
       padding: 0;
       text-align: justify;
       width: 100%;
