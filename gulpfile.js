@@ -14,6 +14,7 @@ var outputDir,
     htmlSources,
     jsSources,
     testDirectory,
+    e2eDirectory,
 
 outputDir = 'public/';
 sassStyle = 'expanded';
@@ -36,10 +37,11 @@ jsSources = [
     'app/js/*.js'
 ];
 testDirectory = [
-    'test/*.js',
+    'test/*.js'
+];
+e2eDirectory = [
     'e2e/*.js'
 ];
-
 
 gulp.task('scss', function() {
     gulp.src(sassSources)
@@ -84,6 +86,11 @@ gulp.task('scsslint', function() {
 
 gulp.task('mocha', function() {
     return gulp.src(testDirectory, {read: false})
+        .pipe(mocha({reporter: 'spec'}));
+});
+
+gulp.task('e2e', function() {
+    return gulp.src(e2eDirectory, {read: false})
         .pipe(mocha({reporter: 'spec'}));
 });
 

@@ -1,12 +1,34 @@
-var chai = require('chai');
-const expect = chai.expect;
-const assert = chai.assert;
 
-describe('Array', function() {
-    describe('#indexOf()', function () {
-        it('should return -1 when the value is not present', function () {
-            assert.equal(-1, [1,2,3].indexOf(5));
-            assert.equal(-1, [1,2,3].indexOf(0));
+'use strict';
+const chai = require('chai');
+const expect = chai.expect;
+const supertest = require('supertest-as-promised');
+const menuAPIServer = require('../bin/www');
+
+chai.should();
+chai.use(require('chai-things'));
+
+before(function() {
+    menuAPIServer.start(3000);
+});
+
+after(function() {
+    menuAPIServer.stop();
+});
+
+describe('Feature: get menu from API', function() {
+    var request = supertest('http://localhost:3000');
+
+    context('When the GET menu endpoint is invoked', function() {
+        it('Invoque menu options API', function(done) {
+            return request.get('/menu')
+                .expect(200)
+                .then(function(res) {
+                    console.log('res', res.body);
+                    var menuOptions = res.body;
+                    expect(menuOptions).to.not.be.undefined;
+                    done();
+                });
         });
     });
 });
