@@ -1,15 +1,3 @@
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function myButtonFunction() {
-    document.getElementById("myDropdownButton").classList.toggle("show-mobile");
-}
-
-function myInnerButtonFunction() {
-    document.getElementById("myInnerDropdown").classList.toggle("show-mobile");
-}
-
 function loadMenu(){
     var url = "http://localhost:3000/menu";
     var xhReq = new XMLHttpRequest();
@@ -25,7 +13,7 @@ function drawMenu( ajaxResponse ){
     var innerMenuCount = 0;
     for(var i = 0; i < ajaxResponse.items.length; i++){
         if (ajaxResponse.items[i].items.length > 0){
-            newList = newList + "<li class='nav-list dropdown'><a href='" + ajaxResponse.items[i].url + "' class='nav-url'>" + ajaxResponse.items[i].label + "</a>"
+            newList = newList + "<li class='nav-list dropdown'><a href='" + ajaxResponse.items[i].url + "' class='nav-url dropbtn' onclick='myFunction" + innerMenuCount + "()'>" + ajaxResponse.items[i].label + "</a>"
             newList = newList + "<ul class='dropdown-menu' id='myDropdown" + innerMenuCount + "'>";
             for(var j = 0; j < ajaxResponse.items[i].items.length; j++){
                 newList = newList + "<li class='nav-sub-list '><a href='" + ajaxResponse.items[i].items[j].url + "' class='nav-sub-url'>" + ajaxResponse.items[i].items[j].label + "</a>"
@@ -65,6 +53,30 @@ function drawMenuMobile( ajaxResponse ){
     var element = document.getElementById('myDropdownButton');
     console.log('list', newList);
     element.innerHTML += newList;
+}
+
+function myFunction1() {
+    document.getElementById("myDropdown1").classList.toggle("show");
+}
+
+function myFunction2() {
+    document.getElementById("myDropdown2").classList.toggle("show");
+}
+
+function myFunction3() {
+    document.getElementById("myDropdown3").classList.toggle("show");
+}
+
+function myFunction0() {
+    document.getElementById("myDropdown0").classList.toggle("show");
+}
+
+function myButtonFunction() {
+    document.getElementById("myDropdownButton").classList.toggle("show-mobile");
+}
+
+function myInnerButtonFunction() {
+    document.getElementById("myInnerDropdown").classList.toggle("show-mobile");
 }
 
 // Close the dropdown menu if the user clicks outside of it
