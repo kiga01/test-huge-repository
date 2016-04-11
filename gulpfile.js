@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     compass = require('gulp-compass'),
     concat = require('gulp-concat'),
     scsslint = require('gulp-scss-lint'),
-    karma = require('karma').Server;
+    mocha = require('gulp-mocha');
 
 var outputDir,
     sassStyle,
@@ -13,6 +13,7 @@ var outputDir,
     fontSources,
     htmlSources,
     jsSources,
+    testDirectory,
 
 outputDir = 'public/';
 sassStyle = 'expanded';
@@ -34,7 +35,9 @@ htmlSources = [
 jsSources = [
     'app/js/*.js'
 ];
-
+testDirectory = [
+    'test/*.js'
+];
 
 
 gulp.task('scss', function() {
@@ -78,11 +81,9 @@ gulp.task('scsslint', function() {
         .on('error', gutil.log)
 });
 
-gulp.task('karmatest', function (done) {
-    return new Server({
-        configFile: __dirname + '/karma.conf.js',
-        singleRun: true
-    }, done).start();
+gulp.task('mocha', function() {
+    return gulp.src(testDirectory, {read: false})
+        .pipe(mocha({reporter: 'spec'}));
 });
 
 gulp.task('watch', function() {
@@ -108,4 +109,9 @@ gulp.task('start', [
     'fonts',
     'server',
     'watch']
+);
+
+gulp.task('test', [
+    'mocha',
+    'scsslint']
 );
