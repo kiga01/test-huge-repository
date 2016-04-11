@@ -42,7 +42,7 @@ function drawMenuMobile( ajaxResponse ){
             newList = newList + "<li class='nav-list dropdown'><a href='" + ajaxResponse.items[i].url +
                 "' class='nav-url inner-dropbtn-mobile'>" + ajaxResponse.items[i].label ;
             newList = newList + "<span class='fa fa-chevron-down fa-lg'></span></a>";
-            newList = newList + "<ul class=inner-dropdown-menu' id='myInnerDropdown" + innerMenuCount + "'>";
+            newList = newList + "<ul class='inner-dropdown-menu' id='myInnerDropdown" + innerMenuCount + "'>";
             for(var j = 0; j < ajaxResponse.items[i].items.length; j++){
                 newList = newList + "<li class='nav-sub-list '><a href='" + ajaxResponse.items[i].items[j].url +
                     "' class='nav-sub-url'>" + ajaxResponse.items[i].items[j].label + "</a>"
@@ -56,7 +56,7 @@ function drawMenuMobile( ajaxResponse ){
 
     }
     newList = newList + "</ul>";
-    var element = document.getElementById('myDropdownButton');
+    var element = document.getElementById('dropdownButton');
     element.innerHTML += newList;
 }
 

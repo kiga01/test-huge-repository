@@ -7,12 +7,14 @@
   background-color: $solid-color-clear;
   display: none;
   left: 0;
+  list-style: none;
+  padding: 0;
   position: absolute;
   top: 72px;
   width: 220px;
   z-index: 500;
 
-  a {
+  .nav-sub-url {
     color: $solid-color;
     display: block;
     font-family: $galaxy-font-family;
@@ -117,7 +119,7 @@
   padding: 0;
   width: 100%;
 
-  .inner-option {
+  .nav-sub-url {
     color: $solid-color;
     display: block;
     font-family: $galaxy-font-family;
