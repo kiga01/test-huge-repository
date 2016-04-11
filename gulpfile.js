@@ -36,7 +36,8 @@ jsSources = [
     'app/js/*.js'
 ];
 testDirectory = [
-    'test/*.js'
+    'test/*.js',
+    'e2e/*.js'
 ];
 
 
