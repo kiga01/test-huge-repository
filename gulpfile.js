@@ -115,6 +115,7 @@ gulp.task('start', [
     'js',
     'html',
     'fonts',
+    'images',
     'server',
     'watch']
 );

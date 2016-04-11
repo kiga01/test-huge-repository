@@ -12,16 +12,59 @@ function myInnerButtonFunction() {
 
 function loadMenu(){
     var url = "http://localhost:3000/menu";
-    $http.get(url).
-    success(function(data, status, headers, config) {
-        // this callback will be called asynchronously
-        // when the response is available
-        console.log('data', data);
-    }).
-    error(function(data, status, headers, config) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-    });
+    var xhReq = new XMLHttpRequest();
+    xhReq.open("GET", url, false);
+    xhReq.send(null);
+    var response = JSON.parse(xhReq.responseText);
+    drawMenu(response);
+    drawMenuMobile(response);
+}
+
+function drawMenu( ajaxResponse ){
+    var newList = "<ul class='nav'>";
+    var innerMenuCount = 0;
+    for(var i = 0; i < ajaxResponse.items.length; i++){
+        if (ajaxResponse.items[i].items.length > 0){
+            newList = newList + "<li class='nav-list dropdown'><a href='" + ajaxResponse.items[i].url + "' class='nav-url'>" + ajaxResponse.items[i].label + "</a>"
+            newList = newList + "<ul class='dropdown-menu' id='myDropdown" + innerMenuCount + "'>";
+            for(var j = 0; j < ajaxResponse.items[i].items.length; j++){
+                newList = newList + "<li class='nav-sub-list '><a href='" + ajaxResponse.items[i].items[j].url + "' class='nav-sub-url'>" + ajaxResponse.items[i].items[j].label + "</a>"
+            }
+            newList = newList + "</ul></li>";
+            innerMenuCount ++;
+        } else {
+            newList = newList + "<li class='nav-list'><a href='" + ajaxResponse.items[i].url + "' class='nav-url'>" + ajaxResponse.items[i].label + "</a></li>";
+        }
+
+    }
+    newList = newList + "</ul>";
+    var element = document.getElementById('desktop-menu');
+    console.log('list', newList);
+    element.innerHTML += newList;
+}
+
+function drawMenuMobile( ajaxResponse ){
+    var newList = "<ul class='nav'>";
+    var innerMenuCount = 0;
+    for(var i = 0; i < ajaxResponse.items.length; i++){
+        if (ajaxResponse.items[i].items.length > 0){
+            newList = newList + "<li class='nav-list dropdown'><a href='" + ajaxResponse.items[i].url + "' class='nav-url inner-dropbtn-mobile'>" + ajaxResponse.items[i].label ;
+            newList = newList + "<span class='fa fa-chevron-down fa-lg'></span></a>";
+            newList = newList + "<ul class=inner-dropdown-menu' id='myInnerDropdown" + innerMenuCount + "'>";
+            for(var j = 0; j < ajaxResponse.items[i].items.length; j++){
+                newList = newList + "<li class='nav-sub-list '><a href='" + ajaxResponse.items[i].items[j].url + "' class='nav-sub-url'>" + ajaxResponse.items[i].items[j].label + "</a>"
+            }
+            newList = newList + "</ul></li>";
+            innerMenuCount ++;
+        } else {
+            newList = newList + "<li class='nav-list'><a href='" + ajaxResponse.items[i].url + "' class='nav-url'>" + ajaxResponse.items[i].label + "</a></li>";
+        }
+
+    }
+    newList = newList + "</ul>";
+    var element = document.getElementById('myDropdownButton');
+    console.log('list', newList);
+    element.innerHTML += newList;
 }
 
 // Close the dropdown menu if the user clicks outside of it

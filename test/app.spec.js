@@ -24,7 +24,6 @@ describe('Feature: get menu from API', function() {
             return request.get('/menu')
                 .expect(200)
                 .then(function(res) {
-                    console.log('res', res.body);
                     var menuOptions = res.body;
                     expect(menuOptions).to.not.be.undefined;
                     done();
