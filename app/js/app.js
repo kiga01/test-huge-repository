@@ -10,13 +10,6 @@ function myInnerButtonFunction() {
     document.getElementById("myInnerDropdown").classList.toggle("show-mobile");
 }
 
-function windowHeight() {
-    var windowHeight = document.body.clientHeight + 'px';
-    var menu = document.getElementById("myDropdownButton");
-    menu.height = windowHeight;
-    //menu.style.height = windowHeight;
-}
-
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {

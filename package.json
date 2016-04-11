@@ -15,7 +15,7 @@
   },
   "private": true,
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start && gulp scsslint",
+    "test": "gulp test",
     "start": "gulp start"
   },
   "dependencies": {
